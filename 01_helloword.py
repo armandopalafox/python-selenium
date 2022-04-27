@@ -2,8 +2,8 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
-chrome_driver_path = 'drivers/chromedriver.exe'
-gecko_driver_path = 'drivers/geckodriver.exe'
+chrome_driver_path = './drivers/chromedriver'
+gecko_driver_path = './drivers/geckodriver'
 
 url= 'https://qamindslab.com'
 service = Service(gecko_driver_path)
