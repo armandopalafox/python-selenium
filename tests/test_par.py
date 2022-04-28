@@ -9,8 +9,17 @@ def es_par(a, b):
 
 def test_positive():
     result = es_par(2, 4)
-    assert result
+    assert result == True, "Los numeros no son pares"
+
+    # if result == True:
+    #     pass
+    # else:
+    #     print("Los numeros no son pares")
 
 def test_negative():
     result = es_par(3, 9)
     assert not result
+
+def test_decimal():
+    result = es_par(1.99999999999999999999, 2.00000000000000000001)
+    assert result

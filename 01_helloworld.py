@@ -6,9 +6,10 @@ chrome_driver_path = './drivers/chromedriver'
 gecko_driver_path = './drivers/geckodriver'
 
 url= 'https://qamindslab.com'
-service = Service(gecko_driver_path)
 
-driver = webdriver.Firefox(service=service)
+service = Service(chrome_driver_path)
+
+driver = webdriver.Chrome(service=service)
 driver.get(url)
 time.sleep(3)
 driver.quit()
