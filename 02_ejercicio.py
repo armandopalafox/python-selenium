@@ -1,4 +1,4 @@
-import time
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -11,18 +11,16 @@ url= 'https://laboratorio.qaminds.com/'
 service = Service(chrome_driver_path)
 driver = webdriver.Chrome(service=service)
 # driver.maximize_window()
-
+driver.implicitly_wait(3)
 #Abrir página
 driver.get(url)
 
 #Buscar 
-time.sleep(5)
 tab_link: WebElement = driver.find_element(By.LINK_TEXT, 'Tablets')
 tab_link.click()
-time.sleep(3)
+
 item: WebElement = driver.find_element(By.LINK_TEXT, 'Samsung Galaxy Tab 10.1')
 item.click()
-time.sleep(3)
 
 #Checar precio, agregar al carrito y a wishlist
 price: WebElement = driver.find_element(By.XPATH, "//ul[@class='list-unstyled']//h2")
@@ -31,7 +29,6 @@ wish_button: WebElement = driver.find_element(By.XPATH, '//*[@id="content"]/div/
 wish_button.click()
 cart_button: WebElement = driver.find_element(By.ID, 'button-cart')
 cart_button.click()
-time.sleep(5)
 
 #Cerrar navegador
 driver.quit()
