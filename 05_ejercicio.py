@@ -11,10 +11,9 @@ gecko_driver_path = './drivers/geckodriver'
 url= 'https://demoqa.com/select-menu'
 service = Service(chrome_driver_path)
 driver = webdriver.Chrome(service=service)
-# driver.maximize_window()
+driver.implicitly_wait(5)
 
 driver.get(url)
-time.sleep(5)
 color_menu: WebElement = driver.find_element(By.ID, "oldSelectMenu")
 assert color_menu.is_displayed(), "El menu no es visible"
 color_dropdown =  Select(color_menu)
