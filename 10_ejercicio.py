@@ -21,9 +21,8 @@ btn_element: WebElement =  wait.until(EC.element_to_be_clickable(btn_locator))
 btn_element.click()
 
 msg_locator = (By.CSS_SELECTOR, '.alert-autocloseable-success')
-msg_visible: WebElement = wait.until(EC.visibility_of_element_located(msg_locator))
-assert msg_visible.is_displayed(), "Message is visible"
-msg_invisible: WebElement = wait.until(EC.invisibility_of_element_located(msg_locator))
+wait.until(EC.visibility_of_element_located(msg_locator))
+assert wait.until(EC.invisibility_of_element_located(msg_locator)), "NOT found"
 
 # Close browser
 driver.quit()

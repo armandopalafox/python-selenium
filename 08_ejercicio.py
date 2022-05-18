@@ -22,8 +22,7 @@ download_btn.click()
 
 complete_locator = (By.CSS_SELECTOR, '.progress-label')
 # assert wait.until(EC.text_to_be_present_in_element(complete_locator, "Complete")), "Complete not visible"
-complete_msg: WebElement =  wait.until(EC.visibility_of_element_located(complete_locator))
-assert complete_msg.is_displayed(), "message is not visible"
+wait.until(EC.visibility_of_element_located(complete_locator, 'Complete'))
 
 close_locator = (By.XPATH, "//button[text()='Close']") 
 close_btn: WebElement =  wait.until(EC.element_to_be_clickable(close_locator))
