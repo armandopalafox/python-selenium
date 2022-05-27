@@ -2,7 +2,6 @@ import time
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
-from sniffio import current_async_library
 from lib.factory.factory_driver import get_driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
