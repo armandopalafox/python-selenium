@@ -28,8 +28,8 @@ class TestProductPage:
         self.product_page.add_to_cart()        
 
     def test_get_total_reviews(self):
-        total_reviews = '0 reviews'
-        self.product_page.get_total_reviews() == total_reviews
+        total_reviews = '0'
+        assert self.product_page.get_total_reviews() == total_reviews
 
     def teardown_method(self):
         if self.driver:
