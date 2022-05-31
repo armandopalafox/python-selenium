@@ -11,6 +11,7 @@ class TestProjectLogin:
         self.driver.get("https://laboratorio.qaminds.com/index.php?route=account/login")
         self.login_page = LoginPage(self.driver)
 
+
     def test_case_1(self):
         self.login_page.login("armando@yopmail.com", "INVALID_PASSWORD")
         assert self.login_page.is_login_warn_displayed(), "Warn should be displayed"
@@ -23,6 +24,7 @@ class TestProjectLogin:
     def test_case_3(self):
         
         assert self.login_page.forgotten_password() == 'An email with a confirmation link has been sent your email address.'
+    
     
     def teardown_method(self):
         if self.driver:

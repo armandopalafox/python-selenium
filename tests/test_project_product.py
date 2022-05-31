@@ -11,6 +11,7 @@ class TestProjectProduct:
         self.driver.get("https://laboratorio.qaminds.com/index.php?route=product/product&path=20_27&product_id=41")
         self.product_page = ProductPage(self.driver)
 
+
     def test_case_1(self):
         product_name = 'iMac'
         assert self.product_page.get_name() == product_name
@@ -27,6 +28,7 @@ class TestProjectProduct:
 
     def test_case_3(self):
         self.product_page.see_product_img()
+
 
     def teardown_method(self):
         if self.driver:

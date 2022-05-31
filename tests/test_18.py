@@ -1,5 +1,4 @@
 from selenium.webdriver.remote.webdriver import WebDriver
-from lib.config import config
 from lib.factory.factory_driver import get_driver
 from lib.pom.qaminds.product_page import ProductPage
 
