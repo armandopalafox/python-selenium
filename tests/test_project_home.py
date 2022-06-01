@@ -8,28 +8,27 @@ class TestProjectHome:
     def setup_method(self):
         self.driver: WebDriver = get_driver()
         self.driver.get(config.get_url())
+        self.home_page = HomePage(self.driver)
+
     
 
     def test_case_1(self):   
-        home_page = HomePage(self.driver)
-        home_page.select_sub_menu("Desktops", "Mac (1)")
-        home_page.select_product('iMac')
-        home_page.add_to_cart()
+        self.home_page.select_sub_menu("Desktops", "Mac (1)")
+        self.home_page.select_product('iMac')
+        self.home_page.add_to_cart()
         
-        total = home_page.get_cart_total()
+        total = self.home_page.get_cart_total()
         assert total == "1 item(s) - $122.00"
 
     def test_case_2(self):
         #Aquí a veces sale un Timeout, pero pienso que es por la velocidad de mi equipo
-        home_page = HomePage(self.driver)
-        home_page.select_product('iPhone')
-        assert home_page.add_to_wl() == 'Wish List (1)'    
+        self.home_page.select_product('iPhone')
+        assert self.home_page.add_to_wl() == 'Wish List (1)'    
     
     def test_case_3(self):
-        home_page = HomePage(self.driver)
-        assert "$" == home_page.get_currency()
-        home_page.set_currency("EUR")
-        assert "€" == home_page.get_currency()
+        assert "$" == self.home_page.get_currency()
+        self.home_page.set_currency("EUR")
+        assert "€" == self.home_page.get_currency()
 
 
     def teardown_method(self):
